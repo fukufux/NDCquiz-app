@@ -18,14 +18,15 @@ if "selected_quiz" not in st.session_state:
     st.session_state.score = 0
     st.session_state.current = 0
     st.session_state.answers = []
+
 # --- 出題中 ---
 if st.session_state.current < len(st.session_state.selected_quiz):
     q = st.session_state.selected_quiz[st.session_state.current]
     st.subheader(f"Q{st.session_state.current + 1}: {q['question']}")
 
-   with st.form(key="quiz_form", clear_on_submit=True):
-       user_input = st.text_input("半角数字を入力してね", value="", key="answer_input", autocomplete="off")
-       submitted = st.form_submit_button("次へ")
+    with st.form(key="quiz_form", clear_on_submit=True):
+        user_input = st.text_input("半角数字を入力してね", value="", key="answer_input", autocomplete="off")
+        submitted = st.form_submit_button("次へ")
 
     if submitted:
         correct = q["answer"].strip()
@@ -45,6 +46,7 @@ if st.session_state.current < len(st.session_state.selected_quiz):
         del st.session_state["answer_input"]
         st.session_state.current += 1
         st.rerun()
+
 else:
     st.success(f"クイズ終了！スコア：{st.session_state.score} / {len(st.session_state.selected_quiz)}")
 
@@ -64,4 +66,3 @@ else:
         for key in ["selected_quiz", "score", "current", "answers"]:
             del st.session_state[key]
         st.rerun()
-
