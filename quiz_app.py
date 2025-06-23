@@ -24,8 +24,8 @@ if st.session_state.current < len(st.session_state.selected_quiz):
     st.subheader(f"Q{st.session_state.current + 1}: {q['question']}")
 
     with st.form(key="quiz_form"):
-        user_input = st.text_input("答えを入力してね", key="answer_input")
-        submitted = st.form_submit_button("答える")
+       user_input = st.text_input("半角数字を入力", value="", key="answer_input")
+        submitted = st.form_submit_button("次へ")
 
     if submitted:
         correct = q["answer"].strip()
