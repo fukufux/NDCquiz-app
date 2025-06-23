@@ -46,7 +46,6 @@ if st.session_state.current < len(st.session_state.selected_quiz):
         st.session_state.current += 1
         st.rerun()
 else:
-   else:
     st.success(f"クイズ終了！スコア：{st.session_state.score} / {len(st.session_state.selected_quiz)}")
 
     # 回答一覧表示
