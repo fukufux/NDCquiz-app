@@ -14,7 +14,7 @@ with open("questions.txt", "r", encoding="utf-8") as file:
 
 # 問題15問をランダムに選ぶ（セッションに保存）
 if "selected_quiz" not in st.session_state:
-    st.session_state.selected_quiz = random.sample(quiz, min(15, len(quiz)))
+    st.session_state.selected_quiz = random.sample(quiz, min(5, len(quiz)))
     st.session_state.score = 0
     st.session_state.current = 0
     st.session_state.answers = []
